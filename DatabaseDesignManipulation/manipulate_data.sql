@@ -30,6 +30,10 @@ WHERE customer_id = 9;
 SELECT * FROM Books
 WHERE book_id = 2;
 
+SELECT b.tittle FROM Books b; 
+SELECT b.tittle, b.author FROM Books b;
+SELECT b.tittle, b.author, b.Price FROM Books b;
+
 SELECT * FROM customers
 WHERE customer_id = 3;
 

@@ -1,3 +1,7 @@
+DROP TABLE IF EXISTS orders;
+DROP TABLE IF EXISTS customers;
+DROP TABLE IF EXISTS books;
+
 -- This SQL script creates a table named 'users' with the following columns:
 CREATE TABLE  Books (
     book_id SERIAL PRIMARY KEY,
@@ -16,9 +20,10 @@ CREATE TABLE customers(
     phone VARCHAR(15) NOT NULL UNIQUE,
     address TEXT NOT NULL
 );
-CREATE TABLE orders(
+CREATE TABLE orders (
     order_id SERIAL PRIMARY KEY,
     customer_id INT REFERENCES customers(customer_id),
-    book_id INT REFERENCES Books(book_id),
+    book_id INT REFERENCES books(book_id),
     order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+

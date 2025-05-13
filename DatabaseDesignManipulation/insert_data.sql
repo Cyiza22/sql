@@ -21,4 +21,8 @@ VALUES
     ('Alice', 'Johnson', 'alice@company.com', '444-444-4444', '321 Maple St, Springfield'),
     ('Charlie', 'Davis', 'charlie@student.com', '222-222-2222', '654 Cedar St, Springfield')
 ;
+
+-- script for inserting data into the orders table
+INSERT INTO orders (customer_id, book_id)
+VALUES (1, 3), (2, 5), (1, 7);
     
