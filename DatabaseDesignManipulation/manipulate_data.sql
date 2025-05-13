@@ -1,19 +1,47 @@
---script to delete, update and select data from the 'users' table
+--script to delete, update and select data from the Books,customers and orders tables
 
 -- Select all users
-SELECT * FROM users;
--- Update the email of a user
-UPDATE users
-SET email = 'john@gmail.com'
-WHERE username = 'john doe';
--- Delete a user from the table
-DELETE FROM users
-WHERE username = 'bob_brown';
+SELECT * FROM Books;
+SELECT * FROM customers;
+SELECT * FROM orders;
+-- Update the tables
+UPDATE Books
+SET tittle = 'To Kill a Mockingbird', author = 'john doe'
+WHERE book_id = 2;
 
 
--- Select a specific user
-SELECT * FROM users
-WHERE username = 'jane smith';
--- Select users with a specific condition
-SELECT * FROM users
-WHERE created_at > '2023-01-01';
+UPDATE customers
+SET first_name = 'Jane', customer_id = 9
+WHERE last_name = 'Smith';
+
+UPDATE orders
+SET customer_id = 3, order_id = 90
+WHERE book_id = 2;
+
+-- Delete a user from the tables
+DELETE FROM Books
+WHERE book_id = 1;
+
+DELETE FROM customers
+WHERE customer_id = 9;
+
+
+-- Select a specific part of the tables
+SELECT * FROM Books
+WHERE book_id = 2;
+
+SELECT * FROM customers
+WHERE customer_id = 3;
+
+SELECT * FROM orders
+WHERE order_id = 1;
+
+-- Select tables with a specific condition
+SELECT * FROM Books
+WHERE Price > 10;
+
+SELECT * FROM customers
+WHERE first_name = 'Jane';
+
+SELECT * FROM orders
+WHERE order_date > '2023-01-01';
