@@ -1,29 +1,25 @@
-CREATE TABLE IF NOT EXISTS Doctor (
-  id INT NOT NULL SERIAL PRIMARY KEY,
-  first_name VARCHAR(45) NOT NULL,
-  last_name VARCHAR(45) NOT NULL,
-  speciality VARCHAR(15) NOT NULL,
-  phone_number VARCHAR(45) NOT NULL,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)
-;
-CREATE TABLE IF NOT EXISTS Patient (
-  id INT NOT NULL SERIAL PRIMARY KEY,
-  first_name VARCHAR(45) NOT NULL,
-  last_name VARCHAR(45) NOT NULL,
-  date_of_birth DATE NOT NULL,
-  gender VARCHAR(10) NOT NULL,
-  phone_number VARCHAR(45) NOT NULL,
-  email VARCHAR(45) NOT NULL,
-  address VARCHAR(45) NOT NULL,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-CREATE TABLE IF NOT EXISTS Appointment (
-  id INT NOT NULL SERIAL PRIMARY KEY,
-  doctor_id  INT NOT NULL,
-  patient_id INT NOT NULL,
-  appointment_date TIMESTAMP NOT NULL,
-  status VARCHAR(15) NOT NULL,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (doctor_id) REFERENCES Doctor(id),
-  FOREIGN KEY (patient_id) REFERENCES Patient(id)
-);
+UPDATE appointments
+SET status = 'Completed'
+WHERE id = 1;
+
+DELETE FROM patients
+WHERE id = 2;
+
+SELECT * FROM appointments WHERE appointment_date BETWEEN '2025-06-01' AND '2025-06-30';
+
+-- Get patient names and their appointment dates
+SELECT p.id, p.first_name, a.appointment_date
+FROM patients p INNER JOIN appointments a ON p.id = a.patient_id;
+
+-- Show all doctors and any appointments they may have
+SELECT d.first_name, d.last_name, a.appointment_date, a.status
+FROM doctors d LEFT JOIN appointments a ON d.id = a.doctor_id;
+
+--Remove a patient by first name
+DELETE FROM patients WHERE first_name = 'Alice';
+
+SELECT * FROM Doctors;
+SELECT * FROM Appointments;
+SELECT * FROM Patients;
+SELECT * FROM Appointments;
+SELECT * FROM medical_records;
