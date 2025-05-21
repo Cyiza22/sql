@@ -1,3 +1,6 @@
+package org.example;
+import dao.StudentDAO;
+
 public class Main {
     public static void main(String[] args) {
         // DAOs
@@ -17,7 +20,10 @@ public class Main {
         courseDAO.addCourse(math);
         courseDAO.addCourse(science);
 
-
+        // Enroll students (using StudentDAO)
+        studentDAO.enrollCourse(1, math);
+        studentDAO.enrollCourse(1, science);
+        studentDAO.enrollCourse(2, math);
 
         // Assign marks (use MarksDAO)
         marksDAO.addMark(new Marks(1, 101, 88.5));
@@ -25,7 +31,7 @@ public class Main {
         marksDAO.addMark(new Marks(2, 101, 76.0));
 
         // Display
-        System.out.println("Student Info");
+        System.out.println("=== Student Info ===");
         for (Student student : studentDAO.getAllStudents()) {
             System.out.println(student);
 
