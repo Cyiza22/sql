@@ -18,3 +18,5 @@ CREATE TABLE IF NOT EXISTS Marks(
     marks FLOAT NOT NULL,
     PRIMARY KEY(student_id, courses_id)
 );
+
+
