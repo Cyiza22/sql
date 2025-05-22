@@ -21,7 +21,7 @@ public class Main {
         try {
             connection = DatabaseConnection.getConnection();
         } catch (SQLException e) {
-            System.out.println("There was an erroer" + e.getMessage());
+            System.out.println("There was an error" + e.getMessage());
         }
     }
 
