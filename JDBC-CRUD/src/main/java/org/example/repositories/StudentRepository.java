@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StudentRepository implements Repository<Student, Integer> {
+    public StudentRepository(Connection conn ) {
+    }
+
     @Override
     public List<Student> findAll() {
         List<Student> students = new ArrayList<>();

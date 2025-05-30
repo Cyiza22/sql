@@ -12,11 +12,13 @@ CREATE TABLE IF NOT EXISTS Courses(
     course_description TEXT
 );
 
+
 CREATE TABLE IF NOT EXISTS Marks(
     student_id INT REFERENCES Students(id) ON DELETE CASCADE,
-    courses_id INT REFERENCES courses(id) ON DELETE CASCADE,
+    courses_id INT REFERENCES Courses(id) ON DELETE CASCADE,
     marks FLOAT NOT NULL,
     PRIMARY KEY(student_id, courses_id)
 );
 
 
+select * FROM Courses;

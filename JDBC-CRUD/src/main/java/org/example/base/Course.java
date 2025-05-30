@@ -1,48 +1,35 @@
 package org.example.base;
 
+import java.sql.Date;
 
 public class Course {
-    public int id;
-    public String name;
-    public String description;
+    private int id;
+    private String courseName;
+    private String courseDescription;
 
-    public Course(int id, String name, String description) {
+    public Course(int id, String courseName, String courseDescription) {
         this.id = id;
-        this.name = name;
-        this.description = description;
+        this.courseName = courseName;
+        this.courseDescription = courseDescription;
+    }
+    public Course(String CourseName, String courseDescription) {
+        this(-1, CourseName ,courseDescription);
     }
 
-    public Course(String name, String description) {
-        this(-1, name, description);
-    }
-
-    public int getCourseId() {
+    public int getId() {
         return id;
     }
 
-    public void setCourseId(int id) {
-        this.id = id;
-    }
-
     public String getCourseName() {
-        return name;
-    }
-
-    public void setCourseName(String name) {
-        this.name = name;
+        return courseName;
     }
 
     public String getCourseDescription() {
-        return description;
-    }
-
-    public void setCourseDescription(String description) {
-        this.description = description;
+        return courseDescription;
     }
 
     @Override
     public String toString() {
-        return id + ": " + name + " - " + description;
+        return "[" + id + "] " + courseName + ": " + courseDescription;
     }
 }
-
